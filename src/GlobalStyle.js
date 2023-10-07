@@ -2,9 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
-body {
-  background-color: lightgray;
-  padding-top: 150px;
+
+body{
+  padding: 50px;
 }
 
 h1,
@@ -19,7 +19,7 @@ p {
 
 ul,
 ol {
-  list-style: none;
+  
   margin: 0;
   padding: 0;
 }
