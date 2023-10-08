@@ -23,12 +23,14 @@ export class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.filter);
     const { contacts, filter } = this.state;
+    console.log(contacts);
+    console.log(filter);
     const visibleItems = contacts.filter(contact => {
-      if (contact.name.toLowerCase().includes(filter.toLowerCase())) {
+      if (filter === '') {
         return true;
       }
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
 
     return (
