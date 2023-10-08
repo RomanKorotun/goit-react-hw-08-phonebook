@@ -8,7 +8,7 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Name must be 2 characters long')
     .matches('[a-zA-Zа-яА-ЯіІїЇ]+', 'Enter valid symbols'),
   number: Yup.string()
-    .required('Required')
+    .required('Phone number is required')
     .matches(
       '[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}',
       'Enter valid symbols format xxx-xxx-xx-xx'

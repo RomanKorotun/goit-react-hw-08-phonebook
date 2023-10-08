@@ -1,4 +1,5 @@
 import React from 'react';
+import Notiflix from 'notiflix';
 import { nanoid } from 'nanoid';
 import { Phonebook } from './Phonebook/Phonebook';
 import { ContactsList } from './Contacts/Contacts';
@@ -11,9 +12,15 @@ export class App extends React.Component {
   };
 
   addContact = newContact => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
-    }));
+    this.setState(prevState => {
+      if (prevState.contacts.find(item => item.name === newContact.name)) {
+        Notiflix.Notify.info(`${newContact.name} is already in contacts`);
+        return;
+      }
+      return {
+        contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
+      };
+    });
   };
 
   filter = target => {
