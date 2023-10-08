@@ -17,32 +17,30 @@ const SignupSchema = Yup.object().shape({
 
 export const Phonebook = ({ onAddContact }) => {
   return (
-    <section>
-      <Formik
-        initialValues={{
-          name: '',
-          number: '',
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={(values, helpers) => {
-          onAddContact(values);
-          helpers.resetForm();
-        }}
-      >
-        <Form>
-          <label htmlFor="name">Name</label>
-          <Field id="name" name="name" />
-          <ErrorMessage name="name" />
+    <Formik
+      initialValues={{
+        name: '',
+        number: '',
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={(values, helpers) => {
+        onAddContact(values);
+        helpers.resetForm();
+      }}
+    >
+      <Form>
+        <label htmlFor="name">Name</label>
+        <Field id="name" name="name" />
+        <ErrorMessage name="name" />
 
-          <label type="tel" htmlFor="number">
-            Number
-          </label>
-          <Field id="number" name="number" />
-          <ErrorMessage name="number" />
+        <label type="tel" htmlFor="number">
+          Number
+        </label>
+        <Field id="number" name="number" />
+        <ErrorMessage name="number" />
 
-          <button type="submit">Add contact</button>
-        </Form>
-      </Formik>
-    </section>
+        <button type="submit">Add contact</button>
+      </Form>
+    </Formik>
   );
 };

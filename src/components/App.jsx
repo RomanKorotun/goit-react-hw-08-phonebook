@@ -49,14 +49,20 @@ export class App extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>Phonebook</h1>
-        <Phonebook onAddContact={this.addContact} />
-        <h2>Contacts</h2>
-        <Filter inputValue={filter} onFilter={this.filter} />
-        <ContactsList
-          contacts={visibleItems}
-          onDeleteContact={this.deleteContact}
-        />
+        <section>
+          <h1>Phonebook</h1>
+          <Phonebook onAddContact={this.addContact} />
+        </section>
+        {contacts.length > 0 && (
+          <section>
+            <h2>Contacts</h2>
+            <Filter inputValue={filter} onFilter={this.filter} />
+            <ContactsList
+              contacts={visibleItems}
+              onDeleteContact={this.deleteContact}
+            />
+          </section>
+        )}
       </React.Fragment>
     );
   }
