@@ -27,10 +27,11 @@ export const Button = styled.button`
   color: #ffffff;
   background-color: #4d5ae5;
   border: none;
-  transition: background-color 250ms;
+  transition: background-color 250ms, transform 250ms;
   &:hover,
   :focus {
     background-color: #404bbf;
+    transform: scale(1.02);
   }
 `;
 
