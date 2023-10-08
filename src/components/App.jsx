@@ -23,6 +23,15 @@ export class App extends React.Component {
     });
   };
 
+  deleteContact = name => {
+    this.setState(prevState => {
+      const idx = prevState.contacts.findIndex(item => item.name === name);
+      return {
+        contact: prevState.contacts.splice(idx, 1),
+      };
+    });
+  };
+
   filter = target => {
     this.setState({
       filter: target,
@@ -31,8 +40,6 @@ export class App extends React.Component {
 
   render() {
     const { contacts, filter } = this.state;
-    console.log(contacts);
-    console.log(filter);
     const visibleItems = contacts.filter(contact => {
       if (filter === '') {
         return true;
@@ -46,7 +53,10 @@ export class App extends React.Component {
         <Phonebook onAddContact={this.addContact} />
         <h2>Contacts</h2>
         <Filter inputValue={filter} onFilter={this.filter} />
-        <ContactsList contacts={visibleItems} />
+        <ContactsList
+          contacts={visibleItems}
+          onDeleteContact={this.deleteContact}
+        />
       </React.Fragment>
     );
   }

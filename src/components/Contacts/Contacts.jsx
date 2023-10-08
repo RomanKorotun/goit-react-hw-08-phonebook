@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ContactsList = ({ contacts }) => {
+export const ContactsList = ({ contacts, onDeleteContact }) => {
   return (
     <React.Fragment>
       {contacts.length > 0 && (
@@ -8,7 +8,8 @@ export const ContactsList = ({ contacts }) => {
           <ul>
             {contacts.map(({ name, number, id }) => (
               <li key={id}>
-                {name}: {number}
+                {name}: {number}{' '}
+                <button onClick={() => onDeleteContact(name)}>Delete</button>
               </li>
             ))}
           </ul>
