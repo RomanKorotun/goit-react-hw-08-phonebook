@@ -5,7 +5,7 @@ import { GlobalStyle } from 'GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 
 const theme = {
-  bgColorSection: 'darkgray',
+  bgColorSection: '#a9a9a9',
   radius: '5px',
   spacing: value => `${value * 4}px`,
 };
