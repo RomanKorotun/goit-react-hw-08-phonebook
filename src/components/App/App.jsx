@@ -1,9 +1,10 @@
 import React from 'react';
 import Notiflix from 'notiflix';
 import { nanoid } from 'nanoid';
-import { Phonebook } from './Phonebook/Phonebook';
-import { ContactsList } from './Contacts/Contacts';
-import { Filter } from './Filter/Filter';
+import { Phonebook } from '../Phonebook/Phonebook';
+import { ContactsList } from '../Contacts/Contacts';
+import { Filter } from '../Filter/Filter';
+import { Section, TitleH1, TitleH2 } from './App.styled';
 
 export class App extends React.Component {
   state = {
@@ -49,19 +50,19 @@ export class App extends React.Component {
 
     return (
       <React.Fragment>
-        <section>
-          <h1>Phonebook</h1>
+        <Section>
+          <TitleH1>Phonebook</TitleH1>
           <Phonebook onAddContact={this.addContact} />
-        </section>
+        </Section>
         {contacts.length > 0 && (
-          <section>
-            <h2>Contacts</h2>
+          <Section>
+            <TitleH2>Contacts</TitleH2>
             <Filter inputValue={filter} onFilter={this.filter} />
             <ContactsList
               contacts={visibleItems}
               onDeleteContact={this.deleteContact}
             />
-          </section>
+          </Section>
         )}
       </React.Fragment>
     );

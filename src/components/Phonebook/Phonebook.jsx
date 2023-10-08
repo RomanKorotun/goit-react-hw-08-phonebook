@@ -1,6 +1,7 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { Button, ErrMsg, StyledField, StyledForm } from './Phonebook.styled';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -28,19 +29,19 @@ export const Phonebook = ({ onAddContact }) => {
         helpers.resetForm();
       }}
     >
-      <Form>
+      <StyledForm>
         <label htmlFor="name">Name</label>
-        <Field id="name" name="name" />
-        <ErrorMessage name="name" />
+        <StyledField id="name" name="name" />
+        <ErrMsg component="div" name="name" />
 
         <label type="tel" htmlFor="number">
           Number
         </label>
-        <Field id="number" name="number" />
-        <ErrorMessage name="number" />
+        <StyledField id="number" name="number" />
+        <ErrMsg component="div" name="number" />
 
-        <button type="submit">Add contact</button>
-      </Form>
+        <Button type="submit">Add contact</Button>
+      </StyledForm>
     </Formik>
   );
 };

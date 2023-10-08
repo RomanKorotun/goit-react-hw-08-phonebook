@@ -4,6 +4,7 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
 
 body{
+  background-color: lightgray;
   padding: 50px;
 }
 
@@ -19,7 +20,7 @@ p {
 
 ul,
 ol {
-  
+  list-style: none;
   margin: 0;
   padding: 0;
 }

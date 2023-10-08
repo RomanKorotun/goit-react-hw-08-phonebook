@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, ListItem } from './Contacts.styled';
 
 export const ContactsList = ({ contacts, onDeleteContact }) => {
   return (
@@ -6,10 +7,13 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
       {contacts.length > 0 && (
         <ul>
           {contacts.map(({ name, number, id }) => (
-            <li key={id}>
-              {name}: {number}{' '}
-              <button onClick={() => onDeleteContact(name)}>Delete</button>
-            </li>
+            <ListItem key={id}>
+              <div>
+                <span>{name}: </span>
+                <span>{number} </span>
+              </div>
+              <Button onClick={() => onDeleteContact(name)}>Delete</Button>
+            </ListItem>
           ))}
         </ul>
       )}
