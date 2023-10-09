@@ -13,9 +13,8 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
             </div>
             <Button
               onClick={() => {
-                if (contacts.findIndex(item => item.name === name)) {
-                  onDeleteContact(id);
-                }
+                const idx = contacts.findIndex(item => item.name === name);
+                return onDeleteContact(idx);
               }}
             >
               Delete
@@ -26,4 +25,3 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
     </React.Fragment>
   );
 };
-//onDeleteContact(name)
