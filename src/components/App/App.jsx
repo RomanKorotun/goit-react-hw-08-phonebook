@@ -1,5 +1,4 @@
 import React from 'react';
-import Notiflix from 'notiflix';
 import { nanoid } from 'nanoid';
 import { Phonebook } from '../Phonebook/Phonebook';
 import { ContactsList } from '../Contacts/Contacts';
@@ -14,10 +13,6 @@ export class App extends React.Component {
 
   addContact = newContact => {
     this.setState(prevState => {
-      if (prevState.contacts.find(item => item.name === newContact.name)) {
-        Notiflix.Notify.info(`${newContact.name} is already in contacts`);
-        return;
-      }
       return {
         contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
       };
@@ -39,20 +34,24 @@ export class App extends React.Component {
     });
   };
 
-  render() {
+  visibleItems = () => {
     const { contacts, filter } = this.state;
-    const visibleItems = contacts.filter(contact => {
+    return contacts.filter(contact => {
       if (filter === '') {
         return true;
       }
       return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
+  };
 
+  render() {
+    const { contacts, filter } = this.state;
+    const visibleItems = this.visibleItems();
     return (
       <React.Fragment>
         <Section>
           <TitleH1>Phonebook</TitleH1>
-          <Phonebook onAddContact={this.addContact} />
+          <Phonebook onAddContact={this.addContact} contacts={contacts} />
         </Section>
         {contacts.length > 0 && (
           <Section>
