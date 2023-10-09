@@ -11,14 +11,7 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
               <span>{name}: </span>
               <span>{number} </span>
             </div>
-            <Button
-              onClick={() => {
-                const idx = contacts.findIndex(item => item.name === name);
-                return onDeleteContact(idx);
-              }}
-            >
-              Delete
-            </Button>
+            <Button onClick={() => onDeleteContact(id)}>Delete</Button>
           </ListItem>
         ))}
       </ul>

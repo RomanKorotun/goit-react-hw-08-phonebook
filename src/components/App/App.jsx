@@ -19,10 +19,10 @@ export class App extends React.Component {
     });
   };
 
-  deleteContact = idx => {
+  deleteContact = id => {
     this.setState(prevState => {
       return {
-        contact: prevState.contacts.splice(idx, 1),
+        contacts: prevState.contacts.filter(contact => contact.id !== id),
       };
     });
   };
@@ -35,12 +35,9 @@ export class App extends React.Component {
 
   visibleItems = () => {
     const { contacts, filter } = this.state;
-    return contacts.filter(contact => {
-      if (filter === '') {
-        return true;
-      }
-      return contact.name.toLowerCase().includes(filter.toLowerCase());
-    });
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
 
   render() {
