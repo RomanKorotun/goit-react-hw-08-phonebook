@@ -19,9 +19,8 @@ export class App extends React.Component {
     });
   };
 
-  deleteContact = name => {
+  deleteContact = idx => {
     this.setState(prevState => {
-      const idx = prevState.contacts.findIndex(item => item.name === name);
       return {
         contact: prevState.contacts.splice(idx, 1),
       };

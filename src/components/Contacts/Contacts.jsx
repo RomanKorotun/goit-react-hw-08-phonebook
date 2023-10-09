@@ -11,10 +11,19 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
               <span>{name}: </span>
               <span>{number} </span>
             </div>
-            <Button onClick={() => onDeleteContact(name)}>Delete</Button>
+            <Button
+              onClick={() => {
+                if (contacts.findIndex(item => item.name === name)) {
+                  onDeleteContact(id);
+                }
+              }}
+            >
+              Delete
+            </Button>
           </ListItem>
         ))}
       </ul>
     </React.Fragment>
   );
 };
+//onDeleteContact(name)
