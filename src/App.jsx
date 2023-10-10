@@ -1,9 +1,9 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { Phonebook } from '../Phonebook/Phonebook';
-import { ContactsList } from '../Contacts/Contacts';
-import { Filter } from '../Filter/Filter';
-import { Section, TitleH1, TitleH2 } from './App.styled';
+import { Phonebook } from 'components/Phonebook/Phonebook';
+import { Filter } from 'components/Filter/Filter';
+import { ContactsList } from 'components/Contacts/Contacts';
+import { Layout, TitleH1, TitleH2 } from 'Layout';
 
 export class App extends React.Component {
   state = {
@@ -45,19 +45,19 @@ export class App extends React.Component {
     const visibleItems = this.visibleItems();
     return (
       <React.Fragment>
-        <Section>
+        <Layout>
           <TitleH1>Phonebook</TitleH1>
           <Phonebook onAddContact={this.addContact} contacts={contacts} />
-        </Section>
+        </Layout>
         {contacts.length > 0 && (
-          <Section>
+          <Layout>
             <TitleH2>Contacts</TitleH2>
             <Filter inputValue={filter} onFilter={this.filter} />
             <ContactsList
               contacts={visibleItems}
               onDeleteContact={this.deleteContact}
             />
-          </Section>
+          </Layout>
         )}
       </React.Fragment>
     );

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from 'components/App/App.jsx';
 import { GlobalStyle } from 'GlobalStyle';
 import { ThemeProvider } from 'styled-components';
+import { App } from 'App';
 
 const theme = {
   bgColorSection: '#a9a9a9',
