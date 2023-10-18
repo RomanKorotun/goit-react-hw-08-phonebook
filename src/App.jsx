@@ -1,80 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/Contacts/Contacts';
 import { Layout, TitleH1, TitleH2 } from 'Layout';
 
-export class App extends React.Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
-
-  componentDidMount() {
-    const contactsLs = localStorage.getItem('contacts');
-    if (contactsLs !== null) {
-      this.setState({
-        contacts: JSON.parse(contactsLs),
-      });
-    }
+const getContactsLs = () => {
+  const contactsLs = localStorage.getItem('contacts');
+  if (contactsLs !== null) {
+    return JSON.parse(contactsLs);
   }
+  return [];
+};
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
+export const App = () => {
+  const [contacts, setContacts] = useState(getContactsLs);
+  const [filter, setFilter] = useState('');
 
-  addContact = newContact => {
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
-      };
-    });
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
+  const addContact = newContact => {
+    setContacts(prevState => [...prevState, { ...newContact, id: nanoid() }]);
   };
 
-  deleteContact = id => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(contact => contact.id !== id),
-      };
-    });
+  const filterValue = target => {
+    setFilter(target);
   };
 
-  filter = target => {
-    this.setState({
-      filter: target,
-    });
+  const deleteContact = id => {
+    setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
 
-  visibleItems = () => {
-    const { contacts, filter } = this.state;
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
+  const visibleItems = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
-  render() {
-    const { contacts, filter } = this.state;
-    const visibleItems = this.visibleItems();
-    return (
-      <React.Fragment>
+  return (
+    <React.Fragment>
+      <Layout>
+        <TitleH1>Phonebook</TitleH1>
+        <Phonebook onAddContact={addContact} contacts={contacts} />
+      </Layout>
+      {contacts.length > 0 && (
         <Layout>
-          <TitleH1>Phonebook</TitleH1>
-          <Phonebook onAddContact={this.addContact} contacts={contacts} />
+          <TitleH2>Contacts</TitleH2>
+          <Filter inputValue={filter} onFilter={filterValue} />
+          <ContactsList
+            contacts={visibleItems}
+            onDeleteContact={deleteContact}
+          />
         </Layout>
-        {contacts.length > 0 && (
-          <Layout>
-            <TitleH2>Contacts</TitleH2>
-            <Filter inputValue={filter} onFilter={this.filter} />
-            <ContactsList
-              contacts={visibleItems}
-              onDeleteContact={this.deleteContact}
-            />
-          </Layout>
-        )}
-      </React.Fragment>
-    );
-  }
-}
+      )}
+    </React.Fragment>
+  );
+};
