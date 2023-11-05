@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { Button, ErrMsg, StyledField, StyledForm } from './Phonebook.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -20,7 +21,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const Phonebook = () => {
-  const contacts = useSelector(state => state.contactsKey.contacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
   return (
     <Formik

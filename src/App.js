@@ -4,9 +4,10 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/Contacts/Contacts';
 import { Layout, TitleH1, TitleH2 } from 'Layout';
 import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contactsKey.contacts);
+  const contacts = useSelector(getContacts);
   return (
     <React.Fragment>
       <Layout>
