@@ -8,11 +8,11 @@ export const ContactsList = () => {
   const visibleItems = useSelector(selectorVisibleItems);
   return (
     <ul>
-      {visibleItems.map(({ name, number, id }) => (
+      {visibleItems.map(({ name, phone, id }) => (
         <ListItem key={id}>
           <div>
             <span>{name}: </span>
-            <span>{number} </span>
+            <span>{phone} </span>
           </div>
           <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>
         </ListItem>
