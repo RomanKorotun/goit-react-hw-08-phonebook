@@ -6,6 +6,7 @@ import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { refresh } from 'redux/auth/operations';
+import { LayoutSection } from './Layout.styled';
 
 const HomePage = lazy(() => import('../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -21,7 +22,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Refreshing user...</div>
+    <LayoutSection>
+      <div>Refreshing user...</div>
+    </LayoutSection>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -6,6 +6,7 @@ export const LayoutSection = styled.section`
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 1px 1px 10px 1px #454545;
   padding: ${({ theme: { spacing } }) => spacing(10)};
   border-radius: ${({ theme: { radius } }) => radius};
   &:not(:last-child) {
@@ -26,7 +27,6 @@ export const NavLinkStyled = styled(NavLink)`
   &:hover,
   :focus {
     color: #000000;
-    /* text-decoration: underline; */
     transform: scale(1.02);
   }
   &.active {
