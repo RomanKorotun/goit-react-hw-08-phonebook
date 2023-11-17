@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Layout = styled.section`
+export const LayoutSection = styled.section`
   background-color: ${({ theme: { bgColorSection } }) => bgColorSection};
-  max-width: 400px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding: ${({ theme: { spacing } }) => spacing(10)};

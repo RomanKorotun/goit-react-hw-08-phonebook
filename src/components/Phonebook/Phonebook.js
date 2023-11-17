@@ -5,14 +5,14 @@ import * as Yup from 'yup';
 import { Button, ErrMsg, StyledField, StyledForm } from './Phonebook.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/api';
+import { addContact } from 'redux/contacts/operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .required('Name is required')
     .min(2, 'Name must be 2 characters long')
     .matches('[a-zA-Zа-яА-ЯіІїЇ]+', 'Enter valid symbols'),
-  phone: Yup.string()
+  number: Yup.string()
     .required('Phone number is required')
     .matches(
       '[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}',
@@ -27,7 +27,7 @@ export const Phonebook = () => {
     <Formik
       initialValues={{
         name: '',
-        phone: '',
+        number: '',
       }}
       validationSchema={SignupSchema}
       onSubmit={(values, helpers) => {
@@ -47,8 +47,8 @@ export const Phonebook = () => {
         <label type="tel" htmlFor="phone">
           Phone
         </label>
-        <StyledField id="phone" name="phone" />
-        <ErrMsg component="div" name="phone" />
+        <StyledField id="number" name="number" />
+        <ErrMsg component="div" name="number" />
 
         <Button type="submit">Add contact</Button>
       </StyledForm>
