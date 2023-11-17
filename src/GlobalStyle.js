@@ -4,6 +4,7 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
 
 body{
+  color: #454545;
   background-color: #d3d3d3;
   padding: 50px;
 }
@@ -29,4 +30,9 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }`;

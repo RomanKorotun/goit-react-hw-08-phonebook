@@ -6,26 +6,26 @@ import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { refresh } from 'redux/auth/operations';
-import { fetchContacts } from 'redux/contacts/operations';
 
+const HomePage = lazy(() => import('../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
+
   const { isRefreshing } = useAuth();
   useEffect(() => {
     dispatch(refresh());
   }, [dispatch]);
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+
   return isRefreshing ? (
     <div>Refreshing user...</div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />}></Route>
         <Route
           path="register"
           element={
