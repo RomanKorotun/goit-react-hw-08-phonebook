@@ -1,46 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, fetchContacts, deleteContact } from './operations';
 import { logout } from 'redux/auth/operations';
-const handlerPending = state => {
-  state.error = false;
-  state.isLoading = true;
-};
-const handlerRejected = state => {
-  state.isLoading = false;
-  state.error = true;
-};
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     contacts: [],
-    isLoading: false,
-    error: false,
+    isLoadingAdd: false,
+    isLoadingDelete: false,
+    errorAdd: false,
+    errorDelete: false,
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchContacts.pending, state => {
-        state.isLoading = true;
-      })
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.contacts = action.payload;
       })
-      .addCase(fetchContacts.rejected, handlerRejected)
-      .addCase(addContact.pending, handlerPending)
+      .addCase(addContact.pending, state => {
+        state.errorAdd = false;
+        state.isLoadingAdd = true;
+      })
       .addCase(addContact.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.isLoadingAdd = false;
         state.contacts = [...state.contacts, action.payload];
       })
-      .addCase(addContact.rejected, handlerRejected)
-      .addCase(deleteContact.pending, handlerPending)
+      .addCase(addContact.rejected, state => {
+        state.isLoadingAdd = false;
+        state.errorAdd = true;
+      })
+      .addCase(deleteContact.pending, state => {
+        state.errorDelete = false;
+        state.isLoadingDelete = true;
+      })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.isLoadingDelete = false;
         state.contacts = state.contacts.filter(
           contact => contact.id !== action.payload.id
         );
       })
-      .addCase(deleteContact.rejected, handlerRejected)
+      .addCase(deleteContact.rejected, state => {
+        state.isLoadingDelete = false;
+        state.errorDelete = true;
+      })
       .addCase(logout.fulfilled, state => {
         state.contacts = [];
       }),

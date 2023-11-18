@@ -1,13 +1,23 @@
 import { useSelector } from 'react-redux';
-import { selectContacts, selectError, selectLoading } from 'redux/selectors';
+import {
+  selectContacts,
+  selectErrorAddContacts,
+  selectErrorDeleteContacts,
+  selectIsLoadingDelete,
+  selectLoadingAdd,
+} from 'redux/selectors';
 
 export const useContacts = () => {
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const isLoadingAdd = useSelector(selectLoadingAdd);
+  const isLoadingDelete = useSelector(selectIsLoadingDelete);
+  const errorAdd = useSelector(selectErrorAddContacts);
+  const errorDelete = useSelector(selectErrorDeleteContacts);
   return {
     contacts,
-    isLoading,
-    error,
+    isLoadingAdd,
+    isLoadingDelete,
+    errorAdd,
+    errorDelete,
   };
 };
