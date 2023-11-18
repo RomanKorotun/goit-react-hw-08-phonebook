@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[526],{4526:function(e,n,t){t.r(n),t.d(n,{default:function(){return h}});var o,c=t(1386),i=t(168),r=t(5867).ZP.div(o||(o=(0,i.Z)(["\n  font-size: 40px;\n  font-weight: 600;\n  line-height: 2.5;\n  text-align: center;\n  box-shadow: 1px 1px 1px 1px #454545;\n"]))),a=t(184),h=function(){return(0,a.jsx)(c.P,{children:(0,a.jsx)(r,{children:'Welcome to the "Phone Contact Book" application.'})})}}}]);
+//# sourceMappingURL=526.e509a10a.chunk.js.map
