@@ -1,4 +1,3 @@
-import { LayoutSection } from 'components/Layout.styled';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { Button, StyledField, StyledForm } from './LoginForm.styled';
