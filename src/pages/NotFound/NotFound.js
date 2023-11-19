@@ -19,7 +19,7 @@ const NotFound = () => {
     return () => {
       clearTimeout(timerIdRef);
     };
-  }, [count]);
+  }, [count, navigate]);
   return (
     <LayoutSection>
       <div>
