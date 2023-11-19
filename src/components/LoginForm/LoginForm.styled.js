@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
+import { Field, Form, ErrorMessage } from 'formik';
 
 export const StyledForm = styled(Form)`
   display: flex;
@@ -33,4 +33,9 @@ export const Button = styled.button`
     background-color: ${({ theme: { bgColors } }) => bgColors.activeBgColor};
     transform: scale(1.02);
   }
+`;
+
+export const ErrMsg = styled(ErrorMessage)`
+  color: ${({ theme: { colors } }) => colors.errorColor};
+  margin-bottom: 20px;
 `;
