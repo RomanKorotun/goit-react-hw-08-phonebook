@@ -11,3 +11,7 @@ export const LinkStyled = styled(Link)`
     text-decoration: underline;
   }
 `;
+
+export const SpanStyled = styled.span`
+  color: ${({ theme: { colors } }) => colors.notFoundLinkcolor};
+`;
