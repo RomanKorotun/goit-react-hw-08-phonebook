@@ -13,7 +13,7 @@ const NotFound = () => {
       navigate('/');
       return;
     }
-    timerIdRef = setTimeout(() => {
+    timerIdRef.current = setTimeout(() => {
       setCount(prevState => prevState - 1);
     }, 1000);
     return () => {
