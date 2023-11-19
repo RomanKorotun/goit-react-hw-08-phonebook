@@ -1,6 +1,6 @@
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
-import { LayoutSection } from 'components/Layout.styled';
+import { LayoutSection } from 'components/Layout/Layout.styled';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 import { useContacts } from 'hooks/useContacts';
 import { fetchContacts } from 'redux/contacts/operations';

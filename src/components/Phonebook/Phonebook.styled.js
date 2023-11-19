@@ -12,7 +12,7 @@ export const StyledField = styled(Field)`
   margin-bottom: ${({ theme: { spacing } }) => spacing(3)};
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderColorInput};
   outline: none;
 `;
 
@@ -24,18 +24,18 @@ export const Button = styled.button`
   padding-right: ${({ theme: { spacing } }) => spacing(11)};
   padding-bottom: ${({ theme: { spacing } }) => spacing(3)};
   cursor: pointer;
-  color: #ffffff;
-  background-color: #4d5ae5;
+  color: ${({ theme: { colors } }) => colors.secondaryColor};
+  background-color: ${({ theme: { bgColors } }) => bgColors.bgColorButton};
   border: none;
   transition: background-color 250ms, transform 250ms;
   &:hover,
   :focus {
-    background-color: #404bbf;
+    background-color: ${({ theme: { bgColors } }) => bgColors.activeBgColor};
     transform: scale(1.02);
   }
 `;
 
 export const ErrMsg = styled(ErrorMessage)`
-  color: #e60000;
+  color: ${({ theme: { colors } }) => colors.errorColor};
   margin-bottom: 20px;
 `;

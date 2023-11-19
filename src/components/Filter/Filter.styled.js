@@ -6,6 +6,6 @@ export const Input = styled.input`
   margin-bottom: ${({ theme: { spacing } }) => spacing(3)};
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.borderColorInput};
   outline: none;
 `;

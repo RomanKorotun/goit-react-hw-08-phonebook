@@ -1,4 +1,4 @@
-import { LayoutSection } from 'components/Layout.styled';
+import { LayoutSection } from 'components/Layout/Layout.styled';
 import { Error } from 'components/Message';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { useAuth } from 'hooks/useAuth';

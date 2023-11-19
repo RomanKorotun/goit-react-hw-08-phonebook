@@ -1,5 +1,5 @@
 import { AuthNav } from 'components/AuthNav/AuthNav';
-import { LayoutSection } from 'components/Layout.styled';
+import { LayoutSection } from 'components/Layout/Layout.styled';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useAuth } from 'hooks/useAuth';

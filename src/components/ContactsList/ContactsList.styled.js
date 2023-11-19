@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: ${({ theme: { spacing } }) => spacing(1)};
 `;
 
 export const Button = styled.button`
@@ -11,13 +11,13 @@ export const Button = styled.button`
   padding-left: ${({ theme: { spacing } }) => spacing(2)};
   padding-right: ${({ theme: { spacing } }) => spacing(2)};
   cursor: pointer;
-  color: #ffffff;
-  background-color: #4d5ae5;
+  color: ${({ theme: { colors } }) => colors.secondaryColor};
+  background-color: ${({ theme: { bgColors } }) => bgColors.bgColorButton};
   border: none;
   transition: background-color 250ms, transform 250ms;
   &:hover,
   :focus {
-    background-color: #404bbf;
+    background-color: ${({ theme: { bgColors } }) => bgColors.activeBgColor};
     transform: scale(1.02);
   }
 `;

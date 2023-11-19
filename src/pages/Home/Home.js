@@ -1,4 +1,4 @@
-import { LayoutSection } from 'components/Layout.styled';
+import { LayoutSection } from 'components/Layout/Layout.styled';
 import { Container } from './Home.styled';
 
 const Home = () => {

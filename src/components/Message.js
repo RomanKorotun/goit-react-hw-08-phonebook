@@ -7,8 +7,8 @@ export const BeatLoaderStyled = styled(BeatLoader)`
 `;
 
 export const Error = styled.div`
-  font-size: 20px;
+  font-size: ${({ theme: { spacing } }) => spacing(5)};
   text-align: center;
-  color: red;
+  color: ${({ theme: { colors } }) => colors.errorColor};
   margin-bottom: ${({ theme: { spacing } }) => spacing(-6)};
 `;

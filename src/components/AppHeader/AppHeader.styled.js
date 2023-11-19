@@ -9,5 +9,5 @@ export const Header = styled.header`
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: ${({ theme: { spacing } }) => spacing(3)};
 `;

@@ -2,7 +2,7 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 import React from 'react';
 import { BeatLoaderStyled, Error } from 'components/Message';
 import { useAuth } from 'hooks/useAuth';
-import { LayoutSection } from 'components/Layout.styled';
+import { LayoutSection } from 'components/Layout/Layout.styled';
 
 const Login = () => {
   const { errorLogin, isLoadingLogin } = useAuth();

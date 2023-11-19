@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const LinkStyled = styled(Link)`
   display: inline-block;
-  color: #0000ff;
+  color: ${({ theme: { colors } }) => colors.notFoundLinkcolor};
   transition: text-decoration 250ms, transform 250ms;
   &:hover,
   :focus {

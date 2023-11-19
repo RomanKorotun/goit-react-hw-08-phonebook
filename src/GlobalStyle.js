@@ -4,7 +4,7 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
 
 body{
-  color: #454545;
+  color: ${({ theme: { colors } }) => colors.primaryColor};
   background-color: #d3d3d3;
   padding: 50px;
 }

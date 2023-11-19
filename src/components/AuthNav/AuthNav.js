@@ -1,4 +1,4 @@
-import { NavLinkStyled } from 'components/Layout.styled';
+import { NavLinkStyled } from 'components/Layout/Layout.styled';
 import React from 'react';
 
 export const AuthNav = () => {
