@@ -14,14 +14,6 @@ export const LayoutSection = styled.section`
   }
 `;
 
-// export const TitleH1 = styled.h1`
-//   margin-bottom: ${({ theme: { spacing } }) => spacing(5)};
-// `;
-
-// export const TitleH2 = styled.h2`
-//   margin-bottom: ${({ theme: { spacing } }) => spacing(5)};
-// `;
-
 export const NavLinkStyled = styled(NavLink)`
   transition: color 250ms, text-decoration 250ms, transform 250ms;
   &:hover,
