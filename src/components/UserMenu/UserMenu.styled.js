@@ -15,3 +15,15 @@ export const Button = styled.button`
     transform: scale(1.02);
   }
 `;
+
+export const UserMenuContaineer = styled.div`
+  display: flex;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media only screen and (min-width: 768px) {
+    gap: ${({ theme: { spacing } }) => spacing(3)};
+  }
+`;

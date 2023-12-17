@@ -1,10 +1,12 @@
-import { LayoutSection } from 'components/Layout/Layout.styled';
-import { Container } from './Home.styled';
+import { Container, LayoutSection } from 'components/Layout/Layout.styled';
+import { HomeCard } from './Home.styled';
 
 const Home = () => {
   return (
     <LayoutSection>
-      <Container>Welcome to the "Phonebook" application.</Container>
+      <Container>
+        <HomeCard>Welcome to the "Phonebook" application</HomeCard>
+      </Container>
     </LayoutSection>
   );
 };

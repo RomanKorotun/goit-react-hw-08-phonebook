@@ -1,6 +1,6 @@
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
-import { LayoutSection } from 'components/Layout/Layout.styled';
+import { Container, LayoutSection } from 'components/Layout/Layout.styled';
 import { Phonebook } from 'components/Phonebook/Phonebook';
 import { useContacts } from 'hooks/useContacts';
 import { fetchContacts } from 'redux/contacts/operations';
@@ -20,22 +20,28 @@ const Contacts = () => {
   return (
     <React.Fragment>
       <LayoutSection>
-        <Phonebook />
-        {isLoadingAdd && <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>}
-        {errorAdd && (
-          <Error>Error... Please reload the page and try again!</Error>
-        )}
+        <Container>
+          <Phonebook />
+          {isLoadingAdd && (
+            <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
+          )}
+          {errorAdd && (
+            <Error>Error... Please reload the page and try again!</Error>
+          )}
+        </Container>
       </LayoutSection>
       {contacts.length > 0 && (
         <LayoutSection>
-          <Filter />
-          <ContactsList />
-          {isLoadingDelete && (
-            <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
-          )}
-          {errorDelete && (
-            <Error>Error... Please reload the page and try again!</Error>
-          )}
+          <Container>
+            <Filter />
+            <ContactsList />
+            {isLoadingDelete && (
+              <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
+            )}
+            {errorDelete && (
+              <Error>Error... Please reload the page and try again!</Error>
+            )}
+          </Container>
         </LayoutSection>
       )}
     </React.Fragment>

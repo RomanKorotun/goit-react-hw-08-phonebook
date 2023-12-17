@@ -1,4 +1,4 @@
-import { LayoutSection } from 'components/Layout/Layout.styled';
+import { Container, LayoutSection } from 'components/Layout/Layout.styled';
 import { LinkStyled, SpanStyled } from './NotFound.styled';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -22,13 +22,13 @@ const NotFound = () => {
   }, [count, navigate]);
   return (
     <LayoutSection>
-      <div>
+      <Container>
         This route was not found.You will be redirected to the homepage
         after&nbsp;
         <SpanStyled>{count} seconds</SpanStyled>. If you want to go to the
         homepage earlier - please click on the&nbsp;
         <LinkStyled to="/">link!</LinkStyled>
-      </div>
+      </Container>
     </LayoutSection>
   );
 };

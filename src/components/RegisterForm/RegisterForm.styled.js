@@ -17,12 +17,17 @@ export const StyledField = styled(Field)`
 `;
 
 export const Button = styled.button`
-  align-self: center;
   border-radius: ${({ theme: { radius } }) => radius};
-  padding-left: ${({ theme: { spacing } }) => spacing(11)};
+  padding-left: ${({ theme: { spacing } }) => spacing(4)};
   padding-top: ${({ theme: { spacing } }) => spacing(3)};
-  padding-right: ${({ theme: { spacing } }) => spacing(11)};
+  padding-right: ${({ theme: { spacing } }) => spacing(4)};
   padding-bottom: ${({ theme: { spacing } }) => spacing(3)};
+  align-self: center;
+  @media only screen and (min-width: 428px) {
+    padding-left: ${({ theme: { spacing } }) => spacing(6)};
+    padding-right: ${({ theme: { spacing } }) => spacing(6)};
+  }
+
   cursor: pointer;
   color: ${({ theme: { colors } }) => colors.secondaryColor};
   background-color: ${({ theme: { bgColors } }) => bgColors.bgColorButton};

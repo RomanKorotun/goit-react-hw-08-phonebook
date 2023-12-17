@@ -6,7 +6,18 @@ export const GlobalStyle = createGlobalStyle`
 body{
   color: ${({ theme: { colors } }) => colors.primaryColor};
   background-color: #d3d3d3;
+     background-image: 
+     linear-gradient(
+      rgba(46, 47, 66, 0.8),
+      rgba(46, 47, 66, 0.8)
+    ),
+     url(https://th.bing.com/th/id/OIP.7_s6lM7rBIgg_5pGelLCsQHaK5?rs=1&pid=ImgDetMain);
   padding: 50px;
+  background-repeat:repeat;
+  background-size:cover;
+  @media only  screen and (max-width:427px) {
+    font-size: 11px;
+  }
 }
 
 h1,
