@@ -11,21 +11,19 @@ export const AppHeader = () => {
   const { isLoggedIn, errorLogout, isLoadingLogout } = useAuth();
 
   return (
-    <React.Fragment>
-      <LayoutSection>
-        <Container>
-          <Header isLoggedIn={isLoggedIn}>
-            <Navigation />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
-          </Header>
-          {isLoadingLogout && (
-            <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
-          )}
-          {errorLogout && (
-            <Error>Error... Please reload the page and try again!</Error>
-          )}
-        </Container>
-      </LayoutSection>
-    </React.Fragment>
+    <LayoutSection>
+      <Container>
+        <Header isLoggedIn={isLoggedIn}>
+          <Navigation />
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </Header>
+        {isLoadingLogout && (
+          <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
+        )}
+        {errorLogout && (
+          <Error>Error... Please reload the page and try again!</Error>
+        )}
+      </Container>
+    </LayoutSection>
   );
 };

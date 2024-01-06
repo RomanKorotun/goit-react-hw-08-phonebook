@@ -7,19 +7,17 @@ import { Container, LayoutSection } from 'components/Layout/Layout.styled';
 const Login = () => {
   const { errorLogin, isLoadingLogin } = useAuth();
   return (
-    <React.Fragment>
-      <LayoutSection>
-        <Container>
-          <LoginForm />
-          {isLoadingLogin && (
-            <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
-          )}
-          {errorLogin && (
-            <Error>Error... Please reload the page and try again!</Error>
-          )}
-        </Container>
-      </LayoutSection>
-    </React.Fragment>
+    <LayoutSection>
+      <Container>
+        <LoginForm />
+        {isLoadingLogin && (
+          <BeatLoaderStyled color="#36d7b7"></BeatLoaderStyled>
+        )}
+        {errorLogin && (
+          <Error>Error... Please reload the page and try again!</Error>
+        )}
+      </Container>
+    </LayoutSection>
   );
 };
 
